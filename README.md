@@ -2,7 +2,7 @@
 
 ## Objectif du Projet
 
-Le projet étudiant "Analyse des Avis Urgents aux Navigateurs (AVURNAV)" a pour objectif d'explorer et d'analyser les données liées aux avis urgents aux navigateurs émis en France. Les AVURNAV sont des informations essentielles pour assurer la sécurité de la navigation en mer. Ils signalent les éventuels dangers, tels que les épaves, les bouées disparues, les pannes de phares, les tirs militaires, etc.
+Le projet étudiant de Data Visualisation "Analyse des Avis Urgents aux Navigateurs (AVURNAV)" a pour objectif d'explorer et d'analyser les données liées aux avis urgents aux navigateurs émis en France. Les AVURNAV sont des informations essentielles pour assurer la sécurité de la navigation en mer. Ils signalent les éventuels dangers, tels que les épaves, les bouées disparues, les pannes de phares, les tirs militaires, etc.
 
 L'objectif principal du projet est d'analyser ces données pour comprendre les tendances, les régions à risque et les types d'avis les plus fréquents. Le projet vise également à créer des visualisations interactives pour faciliter la compréhension et la consultation des AVURNAV.
 
@@ -38,7 +38,10 @@ Pour exécuter l'application, suivez ces étapes :
 
 ## Contributeurs
 
-Le projet a été réalisé en majeure Business Intelligence & Analytics à EFREI Paris sous la supervision de Mohamed Djallel DILMI.
+Le projet réalisé est un projet de M1 - majeure Business Intelligence & Analytics à EFREI Paris sous la supervision de Mohamed Djallel DILMI.
+Les données de ce projet proviennent de data.gouv.fr dont l'auteur est Antoine Augusti.
+https://www.data.gouv.fr/fr/datasets/avis-urgents-aux-navigateurs-en-vigueur-en-eaux-francaises-metropolitaines/#/resources
+
 
 - Antoine GOULARD
 
