@@ -48,10 +48,10 @@ st.markdown('***')
 st.subheader(":linked_paperclips: Dataset Preview :")
 
 # Offline version of dataset :
-df = pd.read_csv("../Dataset/avurnavs.csv", sep=",")
+#df = pd.read_csv("../Dataset/avurnavs.csv", sep=",")
 
 # Online version of dataset :
-#df = pd.read_csv('https://raw.githubusercontent.com/snosan-tools/avurnavs-fichiers/master/avurnavs.csv', sep=',')
+df = pd.read_csv('https://raw.githubusercontent.com/snosan-tools/avurnavs-fichiers/master/avurnavs.csv', sep=',')
 # source : https://www.data.gouv.fr/fr/datasets/avis-urgents-aux-navigateurs-en-vigueur-en-eaux-francaises-metropolitaines/#/resources
 st.write(df.head())
 
