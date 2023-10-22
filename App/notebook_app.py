@@ -25,7 +25,7 @@ st.sidebar.markdown(f"Retrouvez moi sur [GitHub]({github})")
 st.sidebar.markdown("***")
 st.sidebar.markdown(f"Ecole : [EFREI Paris]({ecole})")
 st.sidebar.markdown("M1 - Business Intelligence & Analytics")
-image = Image.open("../assets/logo-efrei-paris_transp.png")
+image = st.image("../assets/logo-efrei-paris_transp.png", use_column_width=True)
 st.sidebar.image(image, width=200)
 
 # ----------------------------------------------
