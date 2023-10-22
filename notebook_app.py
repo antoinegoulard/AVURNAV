@@ -20,6 +20,7 @@ st.sidebar.markdown(f"Nom: **{nom}**")
 st.sidebar.markdown(f"No. de téléphone: **{telephone}**")
 st.sidebar.markdown(f"Retrouvez moi sur [LinkedIn]({linkedin})")
 st.sidebar.markdown(f"Retrouvez moi sur [GitHub]({github})")
+st.sidebar.markdown("*#datavz2023efrei*")
 st.sidebar.markdown("***")
 st.sidebar.markdown(f"Ecole : [EFREI Paris]({ecole})")
 st.sidebar.markdown("M1 - Business Intelligence & Analytics")
@@ -90,7 +91,7 @@ df.reset_index(drop=True, inplace=True)
 # ----------------------------------------------
 
 st.markdown('\n\n')
-st.subheader(":round_pushpin: Localisation des AVURNAV en France Métropolitaine :")
+st.subheader(":one: Localisation des AVURNAV en France Métropolitaine :")
 
 import folium
 from streamlit_folium import st_folium
@@ -186,7 +187,7 @@ st_data = folium_static(map_AVURNAV(), width=725)
 st.markdown('***')
 
 #bar chart qui utilise altair
-st.subheader("Nombre d'AVURNAV émis par préfecture maritime")
+st.subheader(":two: Nombre d'AVURNAV émis par préfecture maritime :")
 
 import altair as alt
 
@@ -206,23 +207,20 @@ def bar_chart(df):
 st.altair_chart(bar_chart(df), use_container_width=True)
 
 # ----------------------------------------------
+import plotly.express as px
 
 def plot_avis_par_prefecture(df):
-    st.subheader('Répartition en % des avis par préfecture maritime')
+    st.subheader(':three: Répartition en % des avis par préfecture maritime :')
 
-    # Comptez le nombre d'avis par région préfecture maritime
-    avis_par_region = df['region_prefecture_maritime'].value_counts()
+    # Compte le nombre d'avis par région préfecture maritime
+    avis_par_region = df['region_prefecture_maritime'].value_counts().reset_index()
+    avis_par_region.columns = ['region_prefecture_maritime', 'count']
 
-    # Camembert
-    fig, ax = plt.subplots()
-    ax.pie(avis_par_region, labels=avis_par_region.index, autopct='%1.1f%%', startangle=90)
-    ax.axis('equal')
-
-    ax.set_xlabel('Région Préfecture Maritime', labelpad=20)
-    ax.set_ylabel('Nombre d\'avis', labelpad=20)
+    fig = px.pie(avis_par_region, values='count', names='region_prefecture_maritime')
+    fig.update_traces(textinfo='percent+label', pull=[0.1, 0, 0], textfont_size=14)
 
     # Affichage
-    st.pyplot(fig)
+    st.plotly_chart(fig)
 
 plot_avis_par_prefecture(df)
 
@@ -230,9 +228,7 @@ plot_avis_par_prefecture(df)
 
 st.markdown('***')
 
-import plotly.express as px
-
-st.subheader('Durée moyenne des avis par année et par préfecture maritime')
+st.subheader(':four: Durée moyenne des avis par année et par préfecture maritime :')
 
 def duration_plot(df):
     # Filtrage des données pour exclure les avis sans date de fin
@@ -267,6 +263,8 @@ st.markdown('***')
 
 def interactive_scatter_plot(df):
 
+    st.subheader(":five: Référencement des avis maritimes au cours du temps :")
+
     # Création d'un nuage de points interactif
     fig = px.scatter(df, x='date_debut_vigueur', y='date_fin_vigueur',
                      color='region_prefecture_maritime', title='Nuage de Points des Avis Maritimes',
@@ -280,7 +278,7 @@ def interactive_scatter_plot(df):
     selected_point = st.selectbox("Cliquez sur un point pour voir le contenu de l'avis :", df['numero_avurnav'])
     if selected_point:
         avis_contenu = df.loc[df['numero_avurnav'] == selected_point, 'contenu'].values[0]
-        st.subheader('Information sur l\'avis :')
+        st.markdown('Information sur l\'avis :')
         st.markdown(f'<div style="font-size: 12px;">{avis_contenu}</div>', unsafe_allow_html=True)
 
     # Affichage de nuage de points
@@ -292,7 +290,7 @@ interactive_scatter_plot(df)
 
 st.markdown('***')
 
-st.subheader("Densité des AVURNAV dans l'espace maritime en France métropolitaine")
+st.subheader(":six: Densité des AVURNAV dans l'espace maritime en France métropolitaine :")
 
 def heatmap(df, max_signalements_par_prefecture=30):
     locations = df[['latitude', 'longitude']]
