@@ -261,9 +261,16 @@ st.plotly_chart(duration_plot(df))
 
 st.markdown('***')
 
+def fill_empty_content(content):
+    if pd.isna(content):
+        return "Cet avis n'a pas de contenu reporté"
+    return content
+
 def interactive_scatter_plot(df):
 
     st.subheader(":five: Référencement des avis maritimes au cours du temps :")
+
+    df['contenu'] = df['contenu'].apply(fill_empty_content)
 
     # Création d'un nuage de points interactif
     fig = px.scatter(df, x='date_debut_vigueur', y='date_fin_vigueur',
