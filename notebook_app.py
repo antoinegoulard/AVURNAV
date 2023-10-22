@@ -23,7 +23,7 @@ st.sidebar.markdown(f"Retrouvez moi sur [GitHub]({github})")
 st.sidebar.markdown("***")
 st.sidebar.markdown(f"Ecole : [EFREI Paris]({ecole})")
 st.sidebar.markdown("M1 - Business Intelligence & Analytics")
-st.sidebar.image(r'assets\logo-efrei-paris_transp.png', width=200)
+st.sidebar.image(r'assets/logo-efrei-paris_transp.png', width=200)
 
 # ----------------------------------------------
 
@@ -45,7 +45,7 @@ st.markdown('***')
 st.subheader(":linked_paperclips: Dataset Preview :")
 
 # Offline version of dataset :
-#df = pd.read_csv(r'Dataset\avurnavs.csv', sep=",")
+#df = pd.read_csv(r'Dataset/avurnavs.csv', sep=",")
 
 # Online version of dataset :
 df = pd.read_csv('https://raw.githubusercontent.com/snosan-tools/avurnavs-fichiers/master/avurnavs.csv', sep=',')
@@ -162,7 +162,7 @@ def map_AVURNAV():
             popup = folium.Popup(iframe, max_width=2650)
 
             custom_icon = folium.CustomIcon(
-                icon_image=(r'assets\location-pin.png'),
+                icon_image=(r'assets/location-pin.png'),
                 icon_size=(32, 32),  # Taille de l'icône (largeur, hauteur)
                 icon_anchor=(16, 32),  # Point d'ancrage de l'icône (la pointe inférieure au centre)
             )
