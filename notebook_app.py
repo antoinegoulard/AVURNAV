@@ -181,6 +181,7 @@ def map_AVURNAV():
 
 # Affichage de la carte
 st_data = folium_static(map_AVURNAV(), width=725)
+st.markdown("*Note : ce graphe se base sur un échantillon du dataset d'une 30ene d'AVURNAV par préfecture maritime.*")
 
 # ----------------------------------------------
 
@@ -268,13 +269,13 @@ def fill_empty_content(content):
 
 def interactive_scatter_plot(df):
 
-    st.subheader(":five: Référencement des avis maritimes au cours du temps :")
+    st.subheader(":five: Référencement des avis au cours du temps :")
 
     df['contenu'] = df['contenu'].apply(fill_empty_content)
 
     # Création d'un nuage de points interactif
     fig = px.scatter(df, x='date_debut_vigueur', y='date_fin_vigueur',
-                     color='region_prefecture_maritime', title='Nuage de Points des Avis Maritimes',
+                     color='region_prefecture_maritime',
                      labels={'region_prefecture_maritime': 'Préfecture Maritime'},
                      hover_name='numero_avurnav',
                      hover_data=['region_prefecture_maritime', 'date_debut_vigueur', 'date_fin_vigueur'])
@@ -297,7 +298,7 @@ interactive_scatter_plot(df)
 
 st.markdown('***')
 
-st.subheader(":six: Densité des AVURNAV dans l'espace maritime en France métropolitaine :")
+st.subheader(":six: Densité des AVURNAV dans l'espace maritime Français métropolitain :")
 
 def heatmap(df, max_signalements_par_prefecture=30):
     locations = df[['latitude', 'longitude']]
@@ -330,3 +331,4 @@ def heatmap(df, max_signalements_par_prefecture=30):
     folium_static(hm)
 
 heatmap(df)
+st.markdown("*Note : ce graphe se base sur un échantillon du dataset d'une 30ene d'AVURNAV par préfecture maritime.*")
