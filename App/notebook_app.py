@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from PIL import Image
-
 # ----------------- Side bar ------------------
 
 # Informations personnelles
@@ -25,8 +23,7 @@ st.sidebar.markdown(f"Retrouvez moi sur [GitHub]({github})")
 st.sidebar.markdown("***")
 st.sidebar.markdown(f"Ecole : [EFREI Paris]({ecole})")
 st.sidebar.markdown("M1 - Business Intelligence & Analytics")
-image = st.image("../assets/logo-efrei-paris_transp.png", use_column_width=True)
-st.sidebar.image(image, width=200)
+st.sidebar.image("../assets/logo-efrei-paris_transp.png", width=200)
 
 # ----------------------------------------------
 
